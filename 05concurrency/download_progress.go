@@ -32,3 +32,9 @@ package main
 
 // 	fmt.Println("All downloads complete")
 // }
+
+// Explanation:
+
+// The downloadFile function now defers the closure of the progressChan channel. This ensures that the channel is closed when the function exits.
+// The main function ranges over the progressChan channel to receive progress updates. This loop will exit when the channel is closed, indicating that all downloads are complete.
+// This approach ensures that your program properly handles all progress updates and avoids deadlocks.

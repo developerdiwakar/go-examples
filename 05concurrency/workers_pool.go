@@ -45,3 +45,20 @@ func main() {
 		fmt.Println("Task completed:", result)
 	}
 }
+
+// Explanation:
+
+// Task Struct: We define a Task struct to represent the work that needs to be done. In this example, a task is simply identified by its ID.
+
+// Worker Function: The worker function represents a worker goroutine. It receives tasks from a tasks channel, processes them, and sends the results (in this case, the task ID) to a results channel.
+
+// Main Function:
+
+// We specify the number of tasks (numTasks) and the number of worker goroutines (numWorkers).
+// We create channels for communicating tasks and results (tasks and results channels).
+// We spawn worker goroutines, each executing the worker function, passing them the tasks channel to receive tasks and the results channel to send results.
+// We enqueue tasks by sending them to the tasks channel.
+// We close the tasks channel to signal that all tasks have been enqueued.
+// We collect results by receiving them from the results channel and printing them out.
+
+// This worker pool example demonstrates how to limit the number of concurrent tasks being processed by controlling the number of worker goroutines. Each worker is responsible for processing a task and sending the result back.
