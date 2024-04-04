@@ -67,5 +67,3 @@ func main() {
 
 	pickingNumbers(arr)
 }
-
-// Write your code here// Write your code here// Write your code here
