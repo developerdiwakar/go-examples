@@ -8,7 +8,7 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
-func TestMain(t *testing.T) {
+func TestDoMath(t *testing.T) {
 	a := 60
 	b := 12
 	addResult := doMath(a, b, add)
@@ -22,7 +22,7 @@ func TestMain(t *testing.T) {
 	// Test Example using require package from testify
 	require.GreaterOrEqual(t, a, b)
 	// Test Example using assert package from testify
-	assert.Equal(t, 72, doMath(a, b, add))
+	assert.Equal(t, 71, doMath(a, b, add))
 	assert.Equal(t, 48, doMath(a, b, sub))
 	assert.Equal(t, 720, doMath(a, b, mul))
 	assert.Equal(t, 5, doMath(a, b, div))
