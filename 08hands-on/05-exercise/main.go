@@ -8,11 +8,15 @@ import (
 func main() {
 	c := make(chan int)
 
-	v, ok :=
-		fmt.Println(v, ok)
+	go func() {
+		c <- 42
+	}()
+	// Received from Channel before closing channel
+	v, ok := <-c
+	fmt.Println(v, ok)
 
 	close(c)
-
-	v, ok =
-		fmt.Println(v, ok)
+	// Received from Channel after closing channel
+	v, ok = <-c
+	fmt.Println(v, ok)
 }
