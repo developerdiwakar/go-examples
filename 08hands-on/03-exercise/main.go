@@ -5,21 +5,31 @@ package main
 
 import (
 	"fmt"
+	"runtime"
 )
 
 func main() {
+	fmt.Println("Goroutine: ", runtime.NumGoroutine())
 	c := gen()
+	fmt.Println("Goroutine: ", runtime.NumGoroutine())
 	receive(c)
-
+	fmt.Println("Goroutine: ", runtime.NumGoroutine())
 	fmt.Println("about to exit")
 }
 
 func gen() <-chan int {
 	c := make(chan int)
-
-	for i := 0; i < 100; i++ {
-		c <- i
-	}
-
+	go func() {
+		for i := 0; i < 100; i++ {
+			c <- i
+		}
+		close(c)
+	}()
 	return c
+}
+
+func receive(c <-chan int) {
+	for v := range c {
+		fmt.Println(v)
+	}
 }
