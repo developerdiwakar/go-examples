@@ -7,7 +7,9 @@ import "fmt"
 // ○ a buffered channel
 func main() {
 	c := make(chan int)
-	c <- 42
+	go func() {
+		c <- 42
+	}()
 
-	fmt.Println(c)
+	fmt.Println(<-c)
 }
