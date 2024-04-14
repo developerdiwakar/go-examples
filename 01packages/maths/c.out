@@ -1,0 +1,6 @@
+mode: set
+packages/maths/area.go:4.39,6.2 1 0
+packages/maths/maths.go:5.29,7.2 1 0
+packages/maths/maths.go:10.24,12.2 1 1
+packages/maths/maths.go:16.24,18.2 1 0
+packages/maths/maths.go:22.28,24.2 1 0
