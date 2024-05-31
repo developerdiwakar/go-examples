@@ -1,5 +1,8 @@
 package main
 
+// Consider a function that retrieves data from a database.
+// You can use contexts to set a deadline for the database operation,
+// preventing the program from hanging if the database is unresponsive.
 import (
 	"context"
 	"fmt"

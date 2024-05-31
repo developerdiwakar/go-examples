@@ -1,5 +1,8 @@
 package main
 
+// Imagine a web server that handles long-running tasks in response to user requests.
+// You can use contexts to allow users to cancel these tasks if they take too long
+// or if the user navigates away from the page.
 import (
 	"context"
 	"log"
