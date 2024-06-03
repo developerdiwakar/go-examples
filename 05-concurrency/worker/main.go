@@ -11,7 +11,8 @@ type Task struct {
 }
 
 // Define the worker function, which processes tasks from a channel.
-// Note: tasks <-chan Task: A receive-only channel of type Task. This channel is used to receive tasks that need to be processed by the worker.
+// Note:
+// tasks <-chan Task: A receive-only channel of type Task. This channel is used to receive tasks that need to be processed by the worker.
 // results chan<- int: A send-only channel of type int. This channel is used to send the results of the processed tasks back to the caller.
 func worker(id int, tasks <-chan Task, results chan<- int) {
 	for task := range tasks {
