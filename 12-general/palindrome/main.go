@@ -40,7 +40,7 @@ func checkNumberPalindrome(number uint64) bool {
 func main() {
 	// Taking string input from user for palindrome check
 	var str string
-	fmt.Println("Enter a string: ")
+	fmt.Println("Enter a string(without space): ")
 	_, err := fmt.Scanln(&str)
 	if err != nil {
 		fmt.Println("Error reading input:", err)
@@ -54,7 +54,7 @@ func main() {
 	}
 
 	var number uint64
-	fmt.Println("Enter a number: ")
+	fmt.Println("Enter a number(without space): ")
 	_, err = fmt.Scanln(&number)
 	if err != nil {
 		fmt.Println("Error reading input:", err)
