@@ -22,7 +22,7 @@ func main() {
 	_, err := fmt.Scanln(&str)
 
 	if err != nil {
-		log.Fatalln("Error while taking input")
+		log.Fatalf("Error while taking input: %v", err)
 	}
 
 	out := reverseString(str)

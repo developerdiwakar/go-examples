@@ -1,6 +1,11 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"log"
+
+	"github.com/gofiber/fiber/v2/log"
+)
 
 // Example 1: Golang Program code to Check whether a Number is palindrome or not
 func checkStringPalindrome(str string) bool {
@@ -43,7 +48,7 @@ func main() {
 	fmt.Println("Enter a string(without space): ")
 	_, err := fmt.Scanln(&str)
 	if err != nil {
-		fmt.Println("Error reading input:", err)
+		log.Fatalf("Error reading input: %v\n", err)
 		return
 	}
 
@@ -57,7 +62,7 @@ func main() {
 	fmt.Println("Enter a number(without space): ")
 	_, err = fmt.Scanln(&number)
 	if err != nil {
-		fmt.Println("Error reading input:", err)
+		log.Fatalf("Error reading input: %v\n", err)
 		return
 	}
 
