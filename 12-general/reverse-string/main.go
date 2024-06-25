@@ -7,12 +7,12 @@ import (
 
 func reverseString(str string) string {
 	count := len(str)
-	runes := []rune(str)
+	bytes := []byte(str)
 	for i, j := 0, count-1; i < j; i, j = i+1, j-1 {
-		runes[i], runes[j] = runes[j], runes[i]
+		bytes[i], bytes[j] = bytes[j], bytes[i]
 	}
 
-	return string(runes)
+	return string(bytes)
 
 }
 
