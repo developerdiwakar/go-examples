@@ -6,30 +6,37 @@ import "fmt"
 
 func main() {
 	count := 1000
-	var evens []int
+	var evens = make(chan int, count)
+	var done = make(chan struct{})
 
-	for i := 1; i < count; i++ {
-		if i%2 == 0 {
-			evens = append(evens, i)
-		}
-	}
-
-	var final_evens []int
-OUTER_LOOP:
-	for _, v := range evens {
-		if v >= 10 {
-			n := v
-			for n > 0 {
-				d := n % 10
-				n = n / 10
-				if d%2 != 0 {
-					continue OUTER_LOOP
-				}
+	go func() {
+		for i := 1; i < count; i++ {
+			if i%2 == 0 {
+				evens <- i
 			}
 		}
+		close(evens)
+	}()
 
-		final_evens = append(final_evens, v)
-	}
+	var final_evens []int
+	go func() {
+	OUTER_LOOP:
+		for v := range evens {
+			if v >= 10 {
+				n := v
+				for n > 0 {
+					d := n % 10
+					n = n / 10
+					if d%2 != 0 {
+						continue OUTER_LOOP
+					}
+				}
+			}
+			final_evens = append(final_evens, v)
+		}
+		done <- struct{}{}
+	}()
 
+	<-done
 	fmt.Println(final_evens)
 }
