@@ -34,3 +34,8 @@ func main() {
 	fmt.Printf("Result is %d\n", c.value)
 
 }
+
+// Note: sync.Mutex
+// Exclusive Lock: A Mutex provides mutual exclusion, allowing only one goroutine to access the critical section at a time.
+// Use Case: Use Mutex when you need exclusive access to a resource and when reads and writes are not significantly imbalanced.
+// Performance: Since it only allows one goroutine to proceed, it can be a bottleneck if many goroutines need read access.
