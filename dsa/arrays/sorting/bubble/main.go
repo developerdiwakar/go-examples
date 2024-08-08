@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"time"
 )
 
@@ -19,22 +20,17 @@ import (
 func BubbleSort(a []int) {
 	fmt.Println(a)
 	count := len(a)
-	var max = a[0]
 	var swapped bool
-	for i := 0; i < count-1; i++ {
+	for i := 0; i < count; i++ {
 		swapped = false
 		for j := 0; j < count-i-1; j++ {
 			if a[j] > a[j+1] {
-				max = a[j]
-				a[j] = a[j+1]
-				a[j+1] = max
-
+				a[j], a[j+1] = a[j+1], a[j]
 				swapped = true
 			}
-
-			if !swapped {
-				break
-			}
+		}
+		if !swapped {
+			break
 		}
 
 	}
@@ -42,12 +38,11 @@ func BubbleSort(a []int) {
 }
 
 func main() {
-	// var arr = []int{71, 41, 59, 26, 41, 58, 2, 21, 33, 4, 45, 55}
-	var arr = []int{1, 2, 3, 4, 5, 6, 7, 8, 8}
+	var arr = []int{71, 41, 59, 26, 41, 58, 2, 21, 33, 4, 45, 55}
 
 	start := time.Now()
 	BubbleSort(arr)
-	fmt.Println("BubbleSort takes:", time.Since(start).Seconds(), "Seconds")
+	log.Println("BubbleSort takes:", time.Since(start).Seconds(), "Seconds")
 	fmt.Println(arr)
 	fmt.Println("Finish!")
 }
