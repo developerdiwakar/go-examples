@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"time"
 )
 
@@ -12,7 +13,7 @@ import (
 // SelectionSort applies the selection sort algorithm to sort an array
 func SelectionSort(a []int) {
 	fmt.Println(a)
-	var minIdx, swap int
+	var minIdx int
 	count := len(a)
 	for i := 0; i < count-1; i++ {
 		minIdx = i
@@ -23,9 +24,8 @@ func SelectionSort(a []int) {
 		}
 
 		if minIdx != i {
-			swap = a[i]
-			a[i] = a[minIdx]
-			a[minIdx] = swap
+			// Swapping
+			a[i], a[minIdx] = a[minIdx], a[i]
 
 		}
 	}
@@ -36,7 +36,7 @@ func main() {
 
 	start := time.Now()
 	SelectionSort(arr)
-	fmt.Println("SelectionSort takes:", time.Since(start).Seconds(), "Seconds")
+	log.Println("SelectionSort takes:", time.Since(start).Seconds(), "Seconds")
 	fmt.Println(arr)
 	fmt.Println("Finish!")
 }
