@@ -5,6 +5,9 @@ import (
 	"testing"
 )
 
+//t.Error* will report test failures but continue executing the test.
+//t.Fatal* will report test failures and stop the test immediately.
+
 func TestEfficientJoinBasic(t *testing.T) {
 	input := []string{"command", "arg1", "arg2", "arg3"}
 	output := "command arg1 arg2 arg3"
@@ -37,6 +40,7 @@ func TestEfficientJoinTableDriven(t *testing.T) {
 	}
 }
 
+// Benchmark tests for systematic per-formance evaluation
 func BenchmarkEfficientJoin(b *testing.B) {
 	args := []string{
 		"command", "arg1", "arg2", "arg3", "command", "arg1", "arg2", "arg3",
@@ -54,8 +58,9 @@ func BenchmarkUnEfficientJoin(b *testing.B) {
 		"command", "arg1", "arg2", "arg3", "command", "arg1", "arg2", "arg3",
 		"command", "arg1", "arg2", "arg3", "command", "arg1", "arg2", "arg3",
 	}
+
 	for i := 0; i < b.N; i++ {
 		result := unEfficientJoin(args)
-		_ = result
+		_ = result // Prevent compiler optimization
 	}
 }
