@@ -21,3 +21,12 @@ To run both at once
 ```bash 
 go test -v -bench=.
 ```
+
+To run all tests and benchmarks in Go using the command line, you can use the following commands:
+
+```bash
+go test ./...
+```
+```bash
+go test -bench=. ./...
+```
