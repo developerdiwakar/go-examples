@@ -1,9 +1,9 @@
 package payment
 
 type PaymentMethod interface {
-	ProcessPayment(amount float64) (*PaymentResponse, error)
-	CalculateFee(amount float64) (float64, error)
-	GetFee() (float64, error)
+	ProcessPayment(amount float32) (*PaymentResponse, error)
+	CalculateFee(amount float32) (*float32, error)
+	GetFee() (*float32, error)
 }
 
 type PaymentResponse struct {
@@ -13,8 +13,8 @@ type PaymentResponse struct {
 }
 
 type Balance struct {
-	Amount float64
-	Fee    float64
+	Amount float32
+	Fee    float32
 }
 
 type PaymentContext struct {
@@ -25,6 +25,6 @@ func NewPaymentContext(method PaymentMethod) *PaymentContext {
 	return &PaymentContext{PaymentMethod: method}
 }
 
-func (pc *PaymentContext) Pay(amount float64) (*PaymentResponse, error) {
+func (pc *PaymentContext) Pay(amount float32) (*PaymentResponse, error) {
 	return pc.PaymentMethod.ProcessPayment(amount)
 }

@@ -14,33 +14,37 @@ type CreditCard struct {
 }
 
 // ProcessPayment method will process the Credit Card Payment and return the PaymentResponse.
-func (c *CreditCardPayment) ProcessPayment(amount float64) (*PaymentResponse, error) {
-	fee, err := c.GetFee()
+func (c *CreditCardPayment) ProcessPayment(amount float32) (*PaymentResponse, error) {
+	fee, err := c.CalculateFee(amount)
 	if err != nil {
 		return nil, err
 	}
+	// Calculate total payable amount
+	payableAmt := amount + *fee
+	// Prepare payment response
 	paymentRes := &PaymentResponse{
 		Status:  "success",
 		Message: "Payment Successful by Credit Card",
 		Balance: Balance{
-			Amount: amount, // Total Amount
-			Fee:    fee,
+			Amount: payableAmt, // Total Amount
+			Fee:    *fee,
 		},
 	}
 	return paymentRes, nil
 }
 
-func (c *CreditCardPayment) CalculateFee(amount float64) (float64, error) {
-	fee, err := c.GetFee()
+func (c *CreditCardPayment) CalculateFee(amount float32) (*float32, error) {
+	feePercent, err := c.GetFee()
 	if err != nil {
-		return 0, err
+		return nil, err
 	}
-	totalFee := amount * fee
-	return totalFee, nil
+	totalFee := amount * (*feePercent)
+	return &totalFee, nil
 
 }
 
-func (c *CreditCardPayment) GetFee() (float64, error) {
+func (c *CreditCardPayment) GetFee() (*float32, error) {
 	// Implement Fee logic from DB or other sources
-	return 0.03, nil // 3% fee
+	feePercent := float32(0.03)
+	return &feePercent, nil // 3% fee
 }
