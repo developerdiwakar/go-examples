@@ -14,7 +14,7 @@ The Strategy pattern is ideal for this scenario. It allows us to define a family
 1. _PaymentMethod interface:_ Defines the common behavior for all payment methods.
 2. _PaymentMethod interface:_ Extended to include CalculateFee method for fee calculation.
 3. _ProcessPayment function:_ Calculates the total amount including fees, processes the payment, and potentially adds fee information to the response.
-4. _CreditCard, Upi, CreditCardPayment, UpiPayment structs:_ Concrete implementations of payment methods.
+4. _CreditCard, UpiCard, CreditCardPayment, UpiPayment structs:_ Concrete implementations of payment methods.
 5. _PaymentContext struct:_ Holds the current payment method and provides a Pay method.
 6. _NewPaymentContext function:_ Creates a new PaymentContext instance.
 
