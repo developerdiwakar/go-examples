@@ -1,5 +1,11 @@
 package payment
 
+type PaymentMethod interface {
+	ProcessPayment(amount float64) (*PaymentResponse, error)
+	CalculateFee(amount float64) (float64, error)
+	GetFee() (float64, error)
+}
+
 type PaymentResponse struct {
 	Status  string
 	Message string
@@ -9,12 +15,6 @@ type PaymentResponse struct {
 type Balance struct {
 	Amount float64
 	Fee    float64
-}
-
-type PaymentMethod interface {
-	ProcessPayment(amount float64) (*PaymentResponse, error)
-	CalculateFee(amount float64) (float64, error)
-	GetFee() (float64, error)
 }
 
 type PaymentContext struct {

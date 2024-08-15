@@ -16,7 +16,7 @@ func main() {
 	}
 
 	// Create Payment Contexts
-	creditCardPayment := payment.NewPaymentContext(&payment.CreditCardPayment{Card: creditCard})
+	creditCardPayment := payment.NewPaymentContext(&payment.CreditCardPayment{CreditCard: creditCard})
 	creditPaymentRes, err := creditCardPayment.Pay(399)
 	if err != nil {
 		log.Printf("CreditCard Payment Failed: %v\n", err)

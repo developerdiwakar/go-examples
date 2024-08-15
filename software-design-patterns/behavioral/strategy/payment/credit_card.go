@@ -1,14 +1,14 @@
 package payment
 
+type CreditCardPayment struct {
+	CreditCard CreditCard
+}
+
 type CreditCard struct {
 	NameOnCard string
 	Number     string
 	Cvc        string
 	ExpiryDate string
-}
-
-type CreditCardPayment struct {
-	Card CreditCard
 }
 
 func (c *CreditCardPayment) ProcessPayment(amount float64) (*PaymentResponse, error) {
