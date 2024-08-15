@@ -7,17 +7,19 @@ import (
 )
 
 func main() {
-	// Create Payment Methods
+	// Add Credit Card Details
 	creditCard := payment.CreditCard{
 		NameOnCard: "Diwakar",
 		Number:     "4111111111111111",
 		Cvc:        "456",
 		ExpiryDate: "12/26",
 	}
-
+	// Create Credit Payment Method
+	creditCardPayment := &payment.CreditCardPayment{CreditCard: creditCard}
 	// Create Payment Contexts
-	creditCardPayment := payment.NewPaymentContext(&payment.CreditCardPayment{CreditCard: creditCard})
-	creditPaymentRes, err := creditCardPayment.Pay(399)
+	credit := payment.NewPaymentContext(creditCardPayment)
+	// Process Payment
+	creditPaymentRes, err := credit.Pay(399)
 	if err != nil {
 		log.Printf("CreditCard Payment Failed: %v\n", err)
 	}

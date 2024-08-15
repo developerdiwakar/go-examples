@@ -18,13 +18,13 @@ type Balance struct {
 }
 
 type PaymentContext struct {
-	PayMethod PaymentMethod
+	PaymentMethod PaymentMethod
 }
 
-func NewPaymentContext(payMethod PaymentMethod) *PaymentContext {
-	return &PaymentContext{PayMethod: payMethod}
+func NewPaymentContext(method PaymentMethod) *PaymentContext {
+	return &PaymentContext{PaymentMethod: method}
 }
 
 func (pc *PaymentContext) Pay(amount float64) (*PaymentResponse, error) {
-	return pc.PayMethod.ProcessPayment(amount)
+	return pc.PaymentMethod.ProcessPayment(amount)
 }

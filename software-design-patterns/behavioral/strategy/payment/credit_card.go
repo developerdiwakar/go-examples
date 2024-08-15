@@ -1,9 +1,11 @@
 package payment
 
+// CreditCardPayment is a Payment Method
 type CreditCardPayment struct {
 	CreditCard CreditCard
 }
 
+// CreditCard contains credit card details
 type CreditCard struct {
 	NameOnCard string
 	Number     string
@@ -11,6 +13,7 @@ type CreditCard struct {
 	ExpiryDate string
 }
 
+// ProcessPayment method will process the Credit Card Payment and return the PaymentResponse.
 func (c *CreditCardPayment) ProcessPayment(amount float64) (*PaymentResponse, error) {
 	fee, err := c.GetFee()
 	if err != nil {
@@ -38,6 +41,6 @@ func (c *CreditCardPayment) CalculateFee(amount float64) (float64, error) {
 }
 
 func (c *CreditCardPayment) GetFee() (float64, error) {
-	// Get Fee logic from DB or other sources
+	// Implement Fee logic from DB or other sources
 	return 0.03, nil // 3% fee
 }
