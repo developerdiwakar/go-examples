@@ -6,6 +6,7 @@ import (
 	"os"
 )
 
+// FileLogger is a concrete logger for logging to a file
 type FileLogger struct{}
 
 func (f *FileLogger) Log(message string) {

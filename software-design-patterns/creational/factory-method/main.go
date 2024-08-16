@@ -9,13 +9,13 @@ import (
 func main() {
 	var factory logger.LoggerFactory
 
-	message := fmt.Sprintf("%v %s\n", time.DateTime, "Error: Logging from console.")
+	message := fmt.Sprintf("%v %s\n", time.DateTime, "Error: Logging from FileLogger.")
 	// Example create a Console Logger
 	factory = &logger.FileLoggerFactory{}
 	fileLogger := factory.CreateLogger()
 	fileLogger.Log(message)
 
-	message = fmt.Sprintf("%v %s", time.DateTime, "Info: Logging from console.")
+	message = fmt.Sprintf("%v %s", time.DateTime, "Info: Logging from ConsoleLogger.")
 	// Example create a Console Logger
 	factory = &logger.ConsoleLoggerFactory{}
 	consoleLogger := factory.CreateLogger()

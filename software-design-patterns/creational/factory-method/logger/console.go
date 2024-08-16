@@ -4,6 +4,7 @@ import (
 	"fmt"
 )
 
+// ConsoleLogger is a concrete logger for logging to the console
 type ConsoleLogger struct{}
 
 func (c *ConsoleLogger) Log(message string) {

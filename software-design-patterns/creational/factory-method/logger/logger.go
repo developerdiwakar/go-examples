@@ -5,6 +5,7 @@ type Logger interface {
 	Log(message string)
 }
 
+// LoggerFactory is the creator interface that has the factory method
 type LoggerFactory interface {
 	CreateLogger() Logger
 }

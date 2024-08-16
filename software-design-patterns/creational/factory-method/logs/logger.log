@@ -1,7 +1,7 @@
-2006-01-02 15:04:05 Error: Logging from console.
-2006-01-02 15:04:05 Warning: Logging from console.
-2006-01-02 15:04:05 Warning: Logging from console.
-2006-01-02 15:04:05 Warning: Logging from console.
-2006-01-02 15:04:05 Warn: Logging from console.
-2006-01-02 15:04:05 Warn: Logging from console.
-2006-01-02 15:04:05 Error: Logging from console.
+2006-01-02 15:04:05 Error: Logging from FileLogger.
+2006-01-02 15:04:05 Warning: Logging from FileLogger.
+2006-01-02 15:04:05 Warning: Logging from FileLogger.
+2006-01-02 15:04:05 Warning: Logging from FileLogger.
+2006-01-02 15:04:05 Warn: Logging from FileLogger.
+2006-01-02 15:04:05 Warn: Logging from FileLogger.
+2006-01-02 15:04:05 Error: Logging from FileLogger.
