@@ -2,7 +2,7 @@ package main
 
 import (
 	"encoding/json"
-	"go-exercises/software-design-patterns/behavioral/strategy2/payment"
+	"go-exercises/design-patterns/behavioral/strategy2/payment"
 	"log"
 )
 

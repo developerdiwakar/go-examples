@@ -2,7 +2,7 @@ package payment
 
 import (
 	"fmt"
-	"go-exercises/software-design-patterns/behavioral/strategy2/helpers"
+	"go-exercises/design-patterns/behavioral/strategy2/helpers"
 )
 
 // CreditCardStrategy implements the PaymentStrategy for credit cards
