@@ -1,0 +1,38 @@
+@host = http://localhost:8000 
+
+# Health Check
+# GET {{host}}/api/healthcheck
+
+## Contacts APIS
+
+# Create Contact
+# POST {{host}}/api/contacts/
+# Content-Type: application/json
+
+# {
+#     "first_name": "test4",
+#     "last_name": "kumar",
+#     "phone_number": "9274605454",
+#     "street": "Sector 2, Noida"
+# }
+
+# Get All Contacts
+GET {{host}}/api/contacts/
+
+# # Update Contact
+# PUT {{host}}/api/contacts/25ddbda2-c7be-4a38-bd98-7290777a3440
+# Content-Type: application/json
+
+# {
+#     "first_name": "testThree",
+#     "last_name": "user",
+#     "phone_number": "0932342345",
+#     "street": "Sector 16"
+# }
+
+
+# Get Contact by ID
+# GET {{host}}/api/contacts/25ddbda2-c7be-4a38-bd98-7290777a3440
+
+# Delete Contact by ID
+# DELETE {{host}}/api/contacts/a9085baf-efa9-44bf-97bb-107ba40b0d27
