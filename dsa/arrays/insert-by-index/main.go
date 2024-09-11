@@ -8,7 +8,9 @@ func insert(slice []int, index int, value int) []int {
 	if index > len(slice) {
 		return slice
 	}
-	slice = append(slice[:index], append([]int{value}, slice[index:]...)...)
+	// slice = append(slice[:index], append([]int{value}, slice[index:]...)...)
+	slice = append(slice[:index+1], slice[index:]...)
+	slice[index] = value
 	return slice
 }
 
