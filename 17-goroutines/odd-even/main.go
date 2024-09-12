@@ -3,13 +3,15 @@ package main
 import (
 	"fmt"
 	"sync"
+	"time"
 )
 
 func distributor(N int, oddChan, evenChan chan<- int) {
 	defer close(oddChan)
 	defer close(evenChan)
 	for i := 1; i <= N; i++ {
-		if i%2 == 0 {
+		// Bit manipulation(using bitwise AND (&) operator) to find odd and even
+		if i&1 == 0 {
 			evenChan <- i
 		} else {
 			oddChan <- i
@@ -34,8 +36,10 @@ func processEvens(evens []int, evenChan <-chan int, wg *sync.WaitGroup) []int {
 }
 
 func main() {
+	start := time.Now()
+
 	// Set N number
-	N := 10000
+	N := 50_00
 
 	// Create channels
 	oddChan := make(chan int)
@@ -69,4 +73,6 @@ func main() {
 	// Print results
 	fmt.Printf("Odds: %d\n\n", odds)
 	fmt.Printf("Evens: %d\n", evens)
+
+	fmt.Printf("Time elapse: %v\n", time.Since(start))
 }
