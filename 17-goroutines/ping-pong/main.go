@@ -3,12 +3,13 @@ package main
 import (
 	"fmt"
 	"sync"
+	"time"
 )
 
 var N int
 
 func init() {
-	N = 50
+	N = 50_000
 }
 
 func ping(wg *sync.WaitGroup, pingSignChan <-chan struct{}, pongSignChan chan<- struct{}) {
@@ -25,13 +26,14 @@ func pong(wg *sync.WaitGroup, pongSignChan <-chan struct{}, pingSignChan chan<- 
 	defer wg.Done()
 	for i := 1; i <= N; i++ {
 		<-pongSignChan
-		fmt.Println("Ping", i)
+		fmt.Println("Pong", i)
 		pingSignChan <- struct{}{}
 	}
 	close(pingSignChan)
 }
 
 func main() {
+	start := time.Now()
 	var pingSignChan = make(chan struct{}, 1)
 	var pongSignChan = make(chan struct{}, 1)
 
@@ -47,5 +49,6 @@ func main() {
 	wg.Wait()
 
 	fmt.Println("Done!")
+	fmt.Println("Time elapsed:", time.Since(start))
 
 }
