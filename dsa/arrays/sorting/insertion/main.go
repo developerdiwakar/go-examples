@@ -24,12 +24,11 @@ func InsertionSort(b []int) {
 	count := len(b)
 	var temp int
 	for j := 1; j < count; j++ {
-		i := j
-		for i > 0 && b[i] < b[i-1] {
+
+		for i := j; i > 0 && b[i] < b[i-1]; i-- {
 			temp = b[i]
 			b[i] = b[i-1]
 			b[i-1] = temp
-			i--
 		}
 	}
 }

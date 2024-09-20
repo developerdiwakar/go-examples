@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"log"
 	"time"
 )
 
@@ -36,7 +35,7 @@ func main() {
 
 	start := time.Now()
 	SelectionSort(arr)
-	log.Println("SelectionSort takes:", time.Since(start).Seconds(), "Seconds")
 	fmt.Println(arr)
+	fmt.Println("SelectionSort takes:", time.Since(start).Seconds(), "Seconds")
 	fmt.Println("Finish!")
 }
