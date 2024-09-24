@@ -2,8 +2,7 @@ package main
 
 import "fmt"
 
-// Zero's should be left and greater than Zero's in the right . Ordering doesn't matter.
-// Don't use extra variables.
+// Zero's should be left, Ordering doesn't matter.
 // IN: {7, 10, 0, 4, 3, 0, 20, 15}
 // OUT: {7, 10, 15, 4, 3, 20, 0, 0}
 
@@ -11,9 +10,9 @@ func twoPointer(arr []int) {
 	left, right := 0, len(arr)-1
 
 	for left < right {
-		if arr[left] > 0 {
+		if arr[left] <= 0 {
 			left++
-		} else if arr[right] <= 0 {
+		} else if arr[right] > 0 {
 			right--
 		} else {
 			arr[left], arr[right] = arr[right], arr[left]
